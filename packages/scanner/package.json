@@ -1,0 +1,25 @@
+{
+  "name": "@contextforge/scanner",
+  "version": "0.0.0",
+  "private": true,
+  "description": "ContextForge Scanner — Découverte de fichiers, lecture et métadonnées",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "@contextforge/contracts": "workspace:*",
+    "@contextforge/core": "workspace:^",
+    "@contextforge/shared": "workspace:*",
+    "fast-glob": "^3.3.3",
+    "ignore": "^7.0.6"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.0"
+  }
+}

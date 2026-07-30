@@ -1,0 +1,22 @@
+{
+  "name": "@contextforge/generators",
+  "version": "0.0.0",
+  "private": true,
+  "description": "ContextForge Generators — Production des fichiers de sortie Markdown et JSON",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "@contextforge/contracts": "workspace:*",
+    "@contextforge/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.0"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "@contextforge/contracts",
+  "version": "0.0.0",
+  "private": true,
+  "description": "ContextForge Contracts — Types, value objects, enums, schemas Zod et interfaces publiques",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.0"
+  }
+}

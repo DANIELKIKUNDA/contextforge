@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+out/
+
+# Turbo
+.turbo/
+
+# Coverage
+coverage/
+
+# IDE
+.vscode-test/
+*.vsix
+
+# OS
+.DS_Store
+Thumbs.db
+
+# ContextForge generated outputs (do not scan yourself)
+.contextforge/
+
+# Environment
+.env
+.env.*

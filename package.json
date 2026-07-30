@@ -1,0 +1,32 @@
+{
+  "name": "contextforge",
+  "version": "0.0.0",
+  "private": true,
+  "description": "ContextForge V1 — Générateur local, offline-first de Context Packs structurés, sécurisés et traçables depuis un projet logiciel.",
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "test": "vitest run --passWithNoTests",
+    "test:unit": "vitest run --config vitest.workspace.ts --passWithNoTests",
+    "test:integration": "vitest run --config vitest.workspace.ts --passWithNoTests",
+    "test:security": "vitest run --config vitest.workspace.ts --passWithNoTests",
+    "typecheck": "turbo run typecheck",
+    "lint": "biome check .",
+    "format": "biome format --write .",
+    "clean": "turbo run clean",
+    "package:extension": "turbo run package:extension",
+    "validate:architecture": "echo 'Architecture validation — to be implemented'"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/node": "^22.10.0",
+    "turbo": "^2.3.0",
+    "typescript": "^5.7.0",
+    "vitest": "^2.1.0"
+  },
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  }
+}

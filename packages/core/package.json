@@ -1,0 +1,21 @@
+{
+  "name": "@contextforge/core",
+  "version": "0.0.0",
+  "private": true,
+  "description": "ContextForge Core — Orchestration métier, cas d'usage, ports et domaine",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "@contextforge/contracts": "workspace:*"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.0"
+  }
+}

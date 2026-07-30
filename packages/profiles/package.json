@@ -1,0 +1,21 @@
+{
+  "name": "@contextforge/profiles",
+  "version": "0.0.0",
+  "private": true,
+  "description": "ContextForge Profiles — Profils prédéfinis (ai-general, code-review, documentation, onboarding, ui-ux, custom)",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "@contextforge/contracts": "workspace:*"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.0"
+  }
+}

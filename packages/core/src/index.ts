@@ -7,7 +7,12 @@ export type {
 } from './ports/file-content-reader.port';
 export type { SecurityScannerPort } from './ports/security-scanner.port';
 export type { SizingPort, FileSizeMetrics, AggregateSizeMetrics } from './ports/sizing.port';
-export type { PackingPort } from './ports/packing.port';
+export type {
+  PackingPort,
+  PackableFile,
+  OversizedFile,
+  PackingResult,
+} from './ports/packing.port';
 export type { ContextPackWriterPort } from './ports/context-pack-writer.port';
 export type {
   ConfigurationPort,

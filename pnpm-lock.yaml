@@ -107,6 +107,9 @@ importers:
       '@contextforge/contracts':
         specifier: workspace:*
         version: link:../contracts
+      '@contextforge/core':
+        specifier: workspace:^
+        version: link:../core
       '@contextforge/shared':
         specifier: workspace:*
         version: link:../shared
@@ -174,6 +177,9 @@ importers:
       '@contextforge/contracts':
         specifier: workspace:*
         version: link:../contracts
+      '@contextforge/core':
+        specifier: workspace:^
+        version: link:../core
       '@contextforge/shared':
         specifier: workspace:*
         version: link:../shared

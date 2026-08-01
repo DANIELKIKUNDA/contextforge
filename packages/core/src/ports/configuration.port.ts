@@ -1,7 +1,13 @@
 import type { ContextForgeConfiguration } from '@contextforge/contracts';
 
 export interface ConfigurationProvenance {
-  readonly [key: string]: 'default' | 'project-file' | 'cli' | 'vscode-settings' | 'override';
+  readonly [key: string]:
+    | 'default'
+    | 'project-file'
+    | 'environment-variable'
+    | 'cli'
+    | 'vscode-settings'
+    | 'override';
 }
 
 export interface ConfigurationLoadResult {
@@ -11,7 +17,7 @@ export interface ConfigurationLoadResult {
 
 /**
  * Loads, merges, and validates the effective configuration.
- * Priority: explicit options > VS Code settings > project file > defaults.
+ * Priority: explicit options > CLI > env vars > project file > defaults.
  */
 export interface ConfigurationPort {
   load(overrides?: Partial<ContextForgeConfiguration>): Promise<ConfigurationLoadResult>;

@@ -13,7 +13,8 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@contextforge/contracts": "workspace:*"
+    "@contextforge/contracts": "workspace:*",
+    "@contextforge/core": "workspace:^"
   },
   "devDependencies": {
     "rimraf": "^5.0.0"

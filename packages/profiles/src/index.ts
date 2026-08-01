@@ -1,3 +1,7 @@
-// ContextForge Profiles — Predefined profiles (ai-general, code-review, documentation, onboarding, ui-ux, custom).
-// This package will be implemented in Phase 6.
-export {};
+export { ProfileRegistry } from './profile-registry';
+export { aiGeneralProfile } from './ai-general.profile';
+export { codeReviewProfile } from './code-review.profile';
+export { documentationProfile } from './documentation.profile';
+export { onboardingProfile } from './onboarding.profile';
+export { uiUxProfile } from './ui-ux.profile';
+export { customProfile } from './custom.profile';

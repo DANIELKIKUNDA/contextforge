@@ -123,6 +123,9 @@ importers:
       '@contextforge/contracts':
         specifier: workspace:*
         version: link:../contracts
+      '@contextforge/core':
+        specifier: workspace:^
+        version: link:../core
     devDependencies:
       rimraf:
         specifier: ^5.0.0

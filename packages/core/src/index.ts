@@ -75,3 +75,8 @@ export { ListAvailableProfiles } from './use-cases/list-available-profiles';
 export type { ListAvailableProfilesOutput } from './use-cases/list-available-profiles';
 export { PrepareContextPackPreview } from './use-cases/prepare-context-pack-preview';
 export type { PreparePreviewInput } from './use-cases/prepare-context-pack-preview';
+
+// Phase 8 — Use Cases
+export { GenerateContextPack } from './use-cases/generate-context-pack';
+export { CancelContextPackGeneration } from './use-cases/cancel-context-pack-generation';
+export { OpenLastContextPack } from './use-cases/open-last-context-pack';

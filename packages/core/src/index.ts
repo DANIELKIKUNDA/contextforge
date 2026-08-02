@@ -56,3 +56,22 @@ export {
   isTerminal,
   TERMINAL_STATUSES,
 } from './domain/context-pack-state-machine';
+
+// Phase 7 — Services
+export { FileDecisionService } from './services/file-decision-service';
+export { RequestFingerprintService } from './services/request-fingerprint-service';
+export { ProjectInspectionService } from './services/project-inspection-service';
+export type { ProjectInspectionResult } from './services/project-inspection-service';
+
+// Phase 7 — Use Cases
+export { ValidateContextForgeConfiguration } from './use-cases/validate-contextforge-configuration';
+export type { ConfigValidationResult } from './use-cases/validate-contextforge-configuration';
+export { InspectProjectSources } from './use-cases/inspect-project-sources';
+export type {
+  InspectProjectSourcesInput,
+  InspectProjectSourcesOutput,
+} from './use-cases/inspect-project-sources';
+export { ListAvailableProfiles } from './use-cases/list-available-profiles';
+export type { ListAvailableProfilesOutput } from './use-cases/list-available-profiles';
+export { PrepareContextPackPreview } from './use-cases/prepare-context-pack-preview';
+export type { PreparePreviewInput } from './use-cases/prepare-context-pack-preview';

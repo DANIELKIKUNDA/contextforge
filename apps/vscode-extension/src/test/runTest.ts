@@ -11,7 +11,7 @@ async function main(): Promise<void> {
     const __dirname = path.dirname(__filename);
 
     const extensionDevelopmentPath = path.resolve(__dirname, '..', '..');
-    const extensionTestsPath = path.resolve(__dirname, 'integration', 'extension.test');
+    const extensionTestsPath = path.resolve(__dirname, '..', '..', 'dist', 'test', 'integration', 'extension.test.js');
     const testWorkspace = path.resolve(__dirname, '..', '..', 'fixtures', 'workspace');
 
     await runTests({

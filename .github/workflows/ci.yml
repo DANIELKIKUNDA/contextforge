@@ -35,14 +35,14 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Build packages (dependency order)
+        run: pnpm build
+
       - name: TypeScript typecheck
         run: pnpm typecheck
 
       - name: Lint (Biome)
         run: pnpm lint
-
-      - name: Build
-        run: pnpm build
 
       - name: Tests
         run: pnpm test

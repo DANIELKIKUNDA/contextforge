@@ -2,21 +2,106 @@
   "name": "@contextforge/vscode-extension",
   "version": "0.0.0",
   "private": true,
-  "description": "ContextForge VS Code Extension — Interface principale",
+  "displayName": "ContextForge",
+  "description": "Générateur de Context Packs local, offline-first et sécurisé",
   "type": "module",
+  "categories": [
+    "Other"
+  ],
+  "icon": "media/icon.png",
+  "publisher": "contextforge",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/contextforge/contextforge"
+  },
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "activationEvents": [],
   "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "contextForge.generateContextPack",
+        "title": "ContextForge: Generate Context Pack"
+      },
+      {
+        "command": "contextForge.previewContextPack",
+        "title": "ContextForge: Preview Context Pack"
+      },
+      {
+        "command": "contextForge.validateConfiguration",
+        "title": "ContextForge: Validate Configuration"
+      },
+      {
+        "command": "contextForge.openLastContextPack",
+        "title": "ContextForge: Open Last Context Pack"
+      }
+    ],
+    "configuration": {
+      "title": "ContextForge",
+      "properties": {
+        "contextForge.defaultProfile": {
+          "type": "string",
+          "default": "ai-general",
+          "enum": [
+            "ai-general",
+            "code-review",
+            "ui-ux",
+            "custom"
+          ],
+          "description": "Profil par défaut pour la génération de Context Pack"
+        },
+        "contextForge.defaultTokenLimit": {
+          "type": "number",
+          "default": 32000,
+          "enum": [
+            4000,
+            8000,
+            16000,
+            32000,
+            64000,
+            128000
+          ],
+          "description": "Limite de tokens par défaut"
+        },
+        "contextForge.outputDirectory": {
+          "type": "string",
+          "default": ".contextforge",
+          "description": "Répertoire de sortie des Context Packs (relatif au workspace)"
+        }
+      }
+    }
+  },
   "scripts": {
     "build": "tsc",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "test:watch": "vitest",
+    "test:integration": "tsx src/test/runTest.ts",
     "clean": "rimraf dist"
   },
   "dependencies": {
+    "@contextforge/configuration": "workspace:*",
     "@contextforge/contracts": "workspace:*",
     "@contextforge/core": "workspace:*",
-    "@contextforge/configuration": "workspace:*"
+    "@contextforge/generators": "workspace:^",
+    "@contextforge/packer": "workspace:^",
+    "@contextforge/profiles": "workspace:^",
+    "@contextforge/scanner": "workspace:^",
+    "@contextforge/security": "workspace:^",
+    "@contextforge/sizing": "workspace:^"
   },
   "devDependencies": {
-    "rimraf": "^5.0.0"
+    "@types/chai": "^5.2.3",
+    "@types/mocha": "^10.0.10",
+    "@types/vscode": "^1.85.0",
+    "@vscode/test-electron": "2.4.0",
+    "chai": "^6.2.2",
+    "mocha": "^11.8.0",
+    "rimraf": "^5.0.0",
+    "tsx": "^4.23.5",
+    "vitest": "2.1.0"
   }
 }

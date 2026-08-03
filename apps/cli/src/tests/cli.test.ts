@@ -220,9 +220,7 @@ describe('CLI non-interactive', () => {
   });
 
   it('pas de prompt quand options complètes (preview)', () => {
-    const { stdout, exitCode } = run(
-      '--non-interactive preview -r . -o "test" -p ai-general',
-    );
+    const { stdout, exitCode } = run('--non-interactive preview -r . -o "test" -p ai-general');
     expect(exitCode).toBe(0);
     expect(stdout).toContain('Preview');
   });

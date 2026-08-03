@@ -1,6 +1,6 @@
-import * as vscode from 'vscode';
-import { describe, it } from 'mocha';
 import { expect } from 'chai';
+import { describe, it } from 'mocha';
+import * as vscode from 'vscode';
 
 /**
  * Tests d'intégration exécutés dans un vrai Extension Host VS Code
@@ -27,7 +27,7 @@ describe('Extension VS Code — Intégration', () => {
     // Exécuter la commande validateConfiguration — vérifie qu'elle ne crash pas
     try {
       await vscode.commands.executeCommand('contextForge.validateConfiguration');
-    } catch (err) {
+    } catch (_err) {
       // Si la config n'est pas définie, c'est normal — l'important est que ça ne crash pas
     }
   });

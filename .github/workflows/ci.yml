@@ -2,14 +2,16 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [main, feat/phase-10-vscode-extension]
   pull_request:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
   quality:
     name: Quality Gates
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     strategy:
       matrix:
         node-version: [20]
@@ -17,6 +19,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Enable Corepack
+        run: corepack enable
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
@@ -38,5 +43,11 @@ jobs:
       - name: Lint (Biome)
         run: pnpm lint
 
+      - name: Build
+        run: pnpm build
+
       - name: Tests
         run: pnpm test
+
+      - name: Extension Host tests
+        run: xvfb-run -a pnpm --filter @contextforge/vscode-extension test:integration

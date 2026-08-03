@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import type { SourceFile } from '@contextforge/contracts';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
-import { NodeFileContentReaderAdapter } from '../../node-file-content-reader.adapter';
+import { NodeFileContentReaderAdapter } from '../../node-file-content-reader.adapter.js';
 
 function tmpDir(): string {
   const dir = join(tmpdir(), `cf-test-reader-${Date.now()}-${Math.random().toString(36).slice(2)}`);

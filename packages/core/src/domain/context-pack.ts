@@ -5,8 +5,8 @@ import type { Objective } from '@contextforge/contracts';
 import type { TokenLimit } from '@contextforge/contracts';
 import type { GenerationProgress } from '@contextforge/contracts';
 import { createContextPackId } from '@contextforge/contracts';
-import { InvalidAggregateError } from '../errors/core-errors';
-import { isTerminal, validateTransition } from './context-pack-state-machine';
+import { InvalidAggregateError } from '../errors/core-errors.js';
+import { isTerminal, validateTransition } from './context-pack-state-machine.js';
 
 /**
  * ContextPack aggregate root.

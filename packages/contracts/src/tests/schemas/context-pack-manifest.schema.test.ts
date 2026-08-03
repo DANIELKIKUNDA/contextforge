@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { ContextPackManifestSchema } from '../../schemas/context-pack-manifest.schema';
+import { ContextPackManifestSchema } from '../../schemas/context-pack-manifest.schema.js';
 
 describe('ContextPackManifestSchema', () => {
   const validManifest = {

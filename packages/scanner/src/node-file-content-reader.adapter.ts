@@ -3,10 +3,10 @@ import { join } from 'node:path';
 import { resolve as pathResolve } from 'node:path';
 import type { SourceFile } from '@contextforge/contracts';
 import type { FileContentReaderPort, ReadFileOptions, ReadFileResult } from '@contextforge/core';
-import { detectEncoding } from './encoding-detector';
-import { detectFileKind } from './file-kind-detector';
-import { normalizePath, toAbsolutePath } from './path-normalizer';
-import { shouldRejectSymlink } from './symlink-policy';
+import { detectEncoding } from './encoding-detector.js';
+import { detectFileKind } from './file-kind-detector.js';
+import { normalizePath, toAbsolutePath } from './path-normalizer.js';
+import { shouldRejectSymlink } from './symlink-policy.js';
 
 /**
  * Node.js implementation of FileContentReaderPort.

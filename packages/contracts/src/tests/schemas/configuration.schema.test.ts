@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { ContextForgeConfigurationSchema } from '../../schemas/configuration.schema';
+import { ContextForgeConfigurationSchema } from '../../schemas/configuration.schema.js';
 
 describe('ContextForgeConfigurationSchema', () => {
   it('should accept an empty configuration', () => {

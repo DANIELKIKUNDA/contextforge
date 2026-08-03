@@ -1,42 +1,42 @@
 // Enums
-export type { SecuritySeverity } from './enums/security-severity';
-export { SecuritySeverityValues } from './enums/security-severity';
-export type { ProfileId } from './enums/profile-id';
-export { ProfileIdValues } from './enums/profile-id';
-export type { ContextPackStatus } from './enums/context-pack-status';
-export { ContextPackStatusValues, VALID_TRANSITIONS } from './enums/context-pack-status';
-export type { FileContentKind } from './enums/file-content-kind';
-export { FileContentKindValues } from './enums/file-content-kind';
-export type { GenerationPhase } from './enums/generation-phase';
-export { GenerationPhaseValues } from './enums/generation-phase';
-export type { ReasonCode } from './enums/reason-code';
-export { ReasonCodeValues } from './enums/reason-code';
+export type { SecuritySeverity } from './enums/security-severity.js';
+export { SecuritySeverityValues } from './enums/security-severity.js';
+export type { ProfileId } from './enums/profile-id.js';
+export { ProfileIdValues } from './enums/profile-id.js';
+export type { ContextPackStatus } from './enums/context-pack-status.js';
+export { ContextPackStatusValues, VALID_TRANSITIONS } from './enums/context-pack-status.js';
+export type { FileContentKind } from './enums/file-content-kind.js';
+export { FileContentKindValues } from './enums/file-content-kind.js';
+export type { GenerationPhase } from './enums/generation-phase.js';
+export { GenerationPhaseValues } from './enums/generation-phase.js';
+export type { ReasonCode } from './enums/reason-code.js';
+export { ReasonCodeValues } from './enums/reason-code.js';
 
 // IDs
-export type { ContextPackId } from './ids/context-pack-id';
-export { createContextPackId } from './ids/context-pack-id';
+export type { ContextPackId } from './ids/context-pack-id.js';
+export { createContextPackId } from './ids/context-pack-id.js';
 
 // Value Objects
-export type { Objective } from './value-objects/objective';
-export { createObjective } from './value-objects/objective';
-export type { ObjectiveCreationResult } from './value-objects/objective';
-export type { RelativePath } from './value-objects/relative-path';
-export { createRelativePath } from './value-objects/relative-path';
-export type { RelativePathCreationResult } from './value-objects/relative-path';
-export type { TokenLimit, TokenLimitPreset } from './value-objects/token-limit';
+export type { Objective } from './value-objects/objective.js';
+export { createObjective } from './value-objects/objective.js';
+export type { ObjectiveCreationResult } from './value-objects/objective.js';
+export type { RelativePath } from './value-objects/relative-path.js';
+export { createRelativePath } from './value-objects/relative-path.js';
+export type { RelativePathCreationResult } from './value-objects/relative-path.js';
+export type { TokenLimit, TokenLimitPreset } from './value-objects/token-limit.js';
 export {
   createTokenLimit,
   TOKEN_LIMIT_SMALL,
   TOKEN_LIMIT_MEDIUM,
   TOKEN_LIMIT_LARGE,
   resolveTokenLimitPreset,
-} from './value-objects/token-limit';
-export type { TokenLimitCreationResult } from './value-objects/token-limit';
+} from './value-objects/token-limit.js';
+export type { TokenLimitCreationResult } from './value-objects/token-limit.js';
 
 // Models
-export type { ProjectDescriptor } from './models/project-descriptor';
-export type { SourceFile } from './models/source-file';
-export type { SecurityFinding, SecurityFindingKind } from './models/security-finding';
+export type { ProjectDescriptor } from './models/project-descriptor.js';
+export type { SourceFile } from './models/source-file.js';
+export type { SecurityFinding, SecurityFindingKind } from './models/security-finding.js';
 export type {
   FileDecision,
   IncludedFileDecision,
@@ -44,37 +44,37 @@ export type {
   BlockedFileDecision,
   OversizedFileDecision,
   FailedFileDecision,
-} from './models/file-decision';
-export type { ContextPackPreview } from './models/context-pack-preview';
-export type { PackVolume } from './models/pack-volume';
-export type { ContextPackManifest } from './models/context-pack-manifest';
-export type { ContextPackResult } from './models/context-pack-result';
-export type { GenerationProgress } from './models/generation-progress';
+} from './models/file-decision.js';
+export type { ContextPackPreview } from './models/context-pack-preview.js';
+export type { PackVolume } from './models/pack-volume.js';
+export type { ContextPackManifest } from './models/context-pack-manifest.js';
+export type { ContextPackResult } from './models/context-pack-result.js';
+export type { GenerationProgress } from './models/generation-progress.js';
 
 // DTOs
 export type {
   PrepareContextPackPreviewInput,
   PrepareContextPackPreviewOutput,
-} from './dto/prepare-preview.dto';
+} from './dto/prepare-preview.dto.js';
 export type {
   GenerateContextPackInput,
   GenerateContextPackOutput,
-} from './dto/generate-pack.dto';
+} from './dto/generate-pack.dto.js';
 export type {
   InspectProjectSourcesInput,
   InspectProjectSourcesOutput,
-} from './dto/inspect-project.dto';
+} from './dto/inspect-project.dto.js';
 export type {
   ValidateConfigurationInput,
   ValidateConfigurationOutput,
-} from './dto/validate-configuration.dto';
+} from './dto/validate-configuration.dto.js';
 
 // Schemas
-export { ContextPackRequestSchema } from './schemas/context-pack-request.schema';
-export type { ContextPackRequest } from './schemas/context-pack-request.schema';
-export { ContextPackManifestSchema } from './schemas/context-pack-manifest.schema';
-export { ContextForgeConfigurationSchema } from './schemas/configuration.schema';
-export type { ContextForgeConfiguration } from './schemas/configuration.schema';
+export { ContextPackRequestSchema } from './schemas/context-pack-request.schema.js';
+export type { ContextPackRequest } from './schemas/context-pack-request.schema.js';
+export { ContextPackManifestSchema } from './schemas/context-pack-manifest.schema.js';
+export { ContextForgeConfigurationSchema } from './schemas/configuration.schema.js';
+export type { ContextForgeConfiguration } from './schemas/configuration.schema.js';
 
 // Errors
-export type { ContextForgeError } from './errors/contextforge-error';
+export type { ContextForgeError } from './errors/contextforge-error.js';

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { calculateFileMetrics } from '../file-metrics-calculator';
+import { calculateFileMetrics } from '../file-metrics-calculator.js';
 
 describe('file-metrics-calculator', () => {
   it('should handle empty content', () => {

@@ -1,6 +1,6 @@
 import { z } from 'zod';
-import { ProfileIdValues } from '../enums/profile-id';
-import { SecuritySeverityValues } from '../enums/security-severity';
+import { ProfileIdValues } from '../enums/profile-id.js';
+import { SecuritySeverityValues } from '../enums/security-severity.js';
 
 export const ContextPackManifestSchema = z.object({
   schemaVersion: z.string(),

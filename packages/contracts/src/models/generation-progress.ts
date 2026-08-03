@@ -1,4 +1,4 @@
-import type { GenerationPhase } from '../enums/generation-phase';
+import type { GenerationPhase } from '../enums/generation-phase.js';
 
 /**
  * Progress event emitted during ContextPack generation.

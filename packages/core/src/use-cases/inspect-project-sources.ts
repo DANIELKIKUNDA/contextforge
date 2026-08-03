@@ -1,6 +1,6 @@
 import type { ProfileId } from '@contextforge/contracts';
-import type { FileDiscoveryPort } from '../ports/file-discovery.port';
-import type { ProjectInspectionService } from '../services/project-inspection-service';
+import type { FileDiscoveryPort } from '../ports/file-discovery.port.js';
+import type { ProjectInspectionService } from '../services/project-inspection-service.js';
 
 /**
  * Entrée du cas d'usage.

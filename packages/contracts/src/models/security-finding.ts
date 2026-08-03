@@ -1,4 +1,4 @@
-import type { SecuritySeverity } from '../enums/security-severity';
+import type { SecuritySeverity } from '../enums/security-severity.js';
 
 /**
  * Security finding kinds in V1.

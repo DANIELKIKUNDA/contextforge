@@ -1,4 +1,4 @@
-import type { ContextPackStatus } from '../enums/context-pack-status';
+import type { ContextPackStatus } from '../enums/context-pack-status.js';
 
 export interface ContextPackResult {
   readonly packId: string;

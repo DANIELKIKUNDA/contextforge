@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { ConfigurationMerger } from '../configuration-merger';
-import { DEFAULT_CONFIGURATION } from '../default-configuration';
+import { ConfigurationMerger } from '../configuration-merger.js';
+import { DEFAULT_CONFIGURATION } from '../default-configuration.js';
 
 describe('ConfigurationMerger', () => {
   const merger = new ConfigurationMerger();

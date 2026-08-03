@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { calculateAggregateMetrics } from '../aggregate-metrics-calculator';
+import { calculateAggregateMetrics } from '../aggregate-metrics-calculator.js';
 
 describe('aggregate-metrics-calculator', () => {
   it('should handle empty list', () => {

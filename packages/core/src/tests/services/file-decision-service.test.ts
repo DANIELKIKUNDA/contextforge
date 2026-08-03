@@ -1,6 +1,6 @@
 import type { ReasonCode, SecuritySeverity, SourceFile } from '@contextforge/contracts';
 import { describe, expect, it } from 'vitest';
-import { FileDecisionService } from '../../services/file-decision-service';
+import { FileDecisionService } from '../../services/file-decision-service.js';
 
 /** Fabrique un SourceFile minimal pour les tests. */
 function makeFile(relativePath: string, overrides: Partial<SourceFile> = {}): SourceFile {

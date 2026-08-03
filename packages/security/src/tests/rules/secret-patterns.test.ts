@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { DEFAULT_SECRET_PATTERNS } from '../../default-secret-patterns';
+import { DEFAULT_SECRET_PATTERNS } from '../../default-secret-patterns.js';
 
 function findRule(ruleId: string) {
   return DEFAULT_SECRET_PATTERNS.find((r) => r.ruleId === ruleId);

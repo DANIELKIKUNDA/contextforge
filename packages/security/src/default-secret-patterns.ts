@@ -1,4 +1,4 @@
-import type { SecurityRule } from './security-rule';
+import type { SecurityRule } from './security-rule.js';
 
 const REDACTED = '[REDACTED]';
 

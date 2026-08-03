@@ -1,4 +1,4 @@
-import type { ContextPackId } from '../ids/context-pack-id';
+import type { ContextPackId } from '../ids/context-pack-id.js';
 
 export interface PackVolume {
   readonly index: number;

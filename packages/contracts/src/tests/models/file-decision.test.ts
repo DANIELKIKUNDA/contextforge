@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { createContextPackId } from '../../ids/context-pack-id';
+import { createContextPackId } from '../../ids/context-pack-id.js';
 import type {
   BlockedFileDecision,
   ExcludedFileDecision,
@@ -7,9 +7,9 @@ import type {
   FileDecision,
   IncludedFileDecision,
   OversizedFileDecision,
-} from '../../models/file-decision';
-import type { SecurityFinding } from '../../models/security-finding';
-import type { SourceFile } from '../../models/source-file';
+} from '../../models/file-decision.js';
+import type { SecurityFinding } from '../../models/security-finding.js';
+import type { SourceFile } from '../../models/source-file.js';
 
 function makeStubSourceFile(overrides: Partial<SourceFile> = {}): SourceFile {
   return {

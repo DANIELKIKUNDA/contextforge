@@ -4,12 +4,12 @@ import type {
   ConfigurationPort,
   ConfigurationProvenance,
 } from '@contextforge/core';
-import { ConfigurationMerger } from './configuration-merger';
-import { ConfigurationValidator } from './configuration-validator';
-import { DEFAULT_CONFIGURATION } from './default-configuration';
-import { EnvConfigurationLoader } from './env-configuration-loader';
-import { JsonConfigurationLoader } from './json-configuration-loader';
-import { YamlConfigurationLoader } from './yaml-configuration-loader';
+import { ConfigurationMerger } from './configuration-merger.js';
+import { ConfigurationValidator } from './configuration-validator.js';
+import { DEFAULT_CONFIGURATION } from './default-configuration.js';
+import { EnvConfigurationLoader } from './env-configuration-loader.js';
+import { JsonConfigurationLoader } from './json-configuration-loader.js';
+import { YamlConfigurationLoader } from './yaml-configuration-loader.js';
 
 type ProvenanceLevel =
   | 'default'

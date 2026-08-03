@@ -1,4 +1,4 @@
-import type { ProfileDefinition, ProfileRegistryPort } from '../ports/profile-registry.port';
+import type { ProfileDefinition, ProfileRegistryPort } from '../ports/profile-registry.port.js';
 
 /** Sortie du cas d'usage ListAvailableProfiles. */
 export interface ListAvailableProfilesOutput {

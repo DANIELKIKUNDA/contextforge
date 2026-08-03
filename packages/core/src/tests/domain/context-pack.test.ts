@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { ContextPack } from '../../domain/context-pack';
-import { InvalidAggregateError, InvalidStateTransitionError } from '../../errors/core-errors';
+import { ContextPack } from '../../domain/context-pack.js';
+import { InvalidAggregateError, InvalidStateTransitionError } from '../../errors/core-errors.js';
 
 describe('ContextPack aggregate', () => {
   const validId = '550e8400-e29b-41d4-a716-446655440000';

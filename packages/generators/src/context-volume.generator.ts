@@ -1,5 +1,5 @@
 import type { IncludedFileDecision } from '@contextforge/contracts';
-import { MarkdownLanguageResolver } from './markdown-language-resolver';
+import { MarkdownLanguageResolver } from './markdown-language-resolver.js';
 
 /**
  * Génère un volume de contexte Markdown contenant le code des fichiers inclus.

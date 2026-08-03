@@ -1,4 +1,4 @@
-import type { ProfileId } from '../enums/profile-id';
+import type { ProfileId } from '../enums/profile-id.js';
 
 export interface InspectProjectSourcesInput {
   readonly projectRoot: string;

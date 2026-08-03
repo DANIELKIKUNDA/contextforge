@@ -1,7 +1,7 @@
 import type { ContextForgeConfiguration } from '@contextforge/contracts';
 import { describe, expect, it } from 'vitest';
-import { ConfigurationValidator } from '../configuration-validator';
-import { DEFAULT_CONFIGURATION } from '../default-configuration';
+import { ConfigurationValidator } from '../configuration-validator.js';
+import { DEFAULT_CONFIGURATION } from '../default-configuration.js';
 
 describe('ConfigurationValidator', () => {
   const validator = new ConfigurationValidator();

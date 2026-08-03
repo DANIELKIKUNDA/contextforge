@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { ContextPackRequestSchema } from '../../schemas/context-pack-request.schema';
+import { ContextPackRequestSchema } from '../../schemas/context-pack-request.schema.js';
 
 describe('ContextPackRequestSchema', () => {
   const validRequest = {

@@ -1,5 +1,5 @@
 import type { ContextForgeConfiguration } from '@contextforge/contracts';
-import type { ConfigurationPort } from '../ports/configuration.port';
+import type { ConfigurationPort } from '../ports/configuration.port.js';
 
 /**
  * Résultat de validation retourné par le cas d'usage.

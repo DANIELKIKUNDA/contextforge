@@ -1,8 +1,8 @@
 import type { SourceFile } from '@contextforge/contracts';
 import type { PackableFile } from '@contextforge/core';
 import { describe, expect, it } from 'vitest';
-import { PackingStrategy } from '../packing-strategy';
-import { validatePackingResult } from '../packing-validator';
+import { PackingStrategy } from '../packing-strategy.js';
+import { validatePackingResult } from '../packing-validator.js';
 
 function makePackableFile(
   relativePath: string,

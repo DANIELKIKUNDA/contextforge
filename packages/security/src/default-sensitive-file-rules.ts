@@ -1,4 +1,4 @@
-import type { SecurityRule } from './security-rule';
+import type { SecurityRule } from './security-rule.js';
 
 /**
  * Default rules for sensitive file names (doc 06 §10).

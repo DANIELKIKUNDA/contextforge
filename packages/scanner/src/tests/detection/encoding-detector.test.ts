@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { detectEncoding } from '../../encoding-detector';
+import { detectEncoding } from '../../encoding-detector.js';
 
 describe('encoding-detector', () => {
   it('should detect valid UTF-8 ASCII', () => {

@@ -1,5 +1,5 @@
-import type { ProfileId } from '../enums/profile-id';
-import type { ContextPackPreview } from '../models/context-pack-preview';
+import type { ProfileId } from '../enums/profile-id.js';
+import type { ContextPackPreview } from '../models/context-pack-preview.js';
 
 export interface PrepareContextPackPreviewInput {
   readonly projectRoot: string;

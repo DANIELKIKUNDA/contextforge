@@ -16,8 +16,8 @@ import {
   SecurityViolationError,
   UnsupportedEncodingError,
   ValidationError,
-} from '../../errors/core-errors';
-import { ErrorCodes } from '../../errors/error-codes';
+} from '../../errors/core-errors.js';
+import { ErrorCodes } from '../../errors/error-codes.js';
 
 describe('Core errors', () => {
   it('ValidationError should have correct code and be recoverable', () => {

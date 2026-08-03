@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { EnvConfigurationLoader } from '../env-configuration-loader';
+import { EnvConfigurationLoader } from '../env-configuration-loader.js';
 
 describe('EnvConfigurationLoader', () => {
   const loader = new EnvConfigurationLoader();

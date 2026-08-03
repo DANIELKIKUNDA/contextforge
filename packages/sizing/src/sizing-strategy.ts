@@ -1,7 +1,7 @@
 import type { AggregateSizeMetrics, FileSizeMetrics, SizingPort } from '@contextforge/core';
-import { calculateAggregateMetrics } from './aggregate-metrics-calculator';
-import { DEFAULT_TOKEN_RATIO } from './character-token-estimator';
-import { calculateFileMetrics } from './file-metrics-calculator';
+import { calculateAggregateMetrics } from './aggregate-metrics-calculator.js';
+import { DEFAULT_TOKEN_RATIO } from './character-token-estimator.js';
+import { calculateFileMetrics } from './file-metrics-calculator.js';
 
 /**
  * Implements SizingPort using the character-based token estimator.

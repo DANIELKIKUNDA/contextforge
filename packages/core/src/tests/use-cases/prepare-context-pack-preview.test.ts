@@ -1,22 +1,25 @@
 import type { ContextPackPreview, SecurityFinding, SourceFile } from '@contextforge/contracts';
 import { beforeEach, describe, expect, it } from 'vitest';
-import type { CancellationPort } from '../../ports/cancellation.port';
+import type { CancellationPort } from '../../ports/cancellation.port.js';
 import type {
   ConfigurationLoadResult,
   ConfigurationPort,
   ConfigurationProvenance,
-} from '../../ports/configuration.port';
-import type { FileContentReaderPort, ReadFileResult } from '../../ports/file-content-reader.port';
-import type { FileDiscoveryPort } from '../../ports/file-discovery.port';
-import type { PackingPort, PackingResult } from '../../ports/packing.port';
-import type { ProfileDefinition, ProfileRegistryPort } from '../../ports/profile-registry.port';
-import type { ProgressEvent, ProgressReporterPort } from '../../ports/progress-reporter.port';
-import type { SecurityScannerPort } from '../../ports/security-scanner.port';
-import type { AggregateSizeMetrics, FileSizeMetrics, SizingPort } from '../../ports/sizing.port';
+} from '../../ports/configuration.port.js';
+import type {
+  FileContentReaderPort,
+  ReadFileResult,
+} from '../../ports/file-content-reader.port.js';
+import type { FileDiscoveryPort } from '../../ports/file-discovery.port.js';
+import type { PackingPort, PackingResult } from '../../ports/packing.port.js';
+import type { ProfileDefinition, ProfileRegistryPort } from '../../ports/profile-registry.port.js';
+import type { ProgressEvent, ProgressReporterPort } from '../../ports/progress-reporter.port.js';
+import type { SecurityScannerPort } from '../../ports/security-scanner.port.js';
+import type { AggregateSizeMetrics, FileSizeMetrics, SizingPort } from '../../ports/sizing.port.js';
 import {
   PrepareContextPackPreview,
   type PreparePreviewInput,
-} from '../../use-cases/prepare-context-pack-preview';
+} from '../../use-cases/prepare-context-pack-preview.js';
 
 /** Construit un SourceFile minimal pour les fakes. */
 function fakeFile(relativePath: string, sizeInBytes = 1024): SourceFile {

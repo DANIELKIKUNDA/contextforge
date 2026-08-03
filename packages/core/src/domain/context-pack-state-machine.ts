@@ -1,6 +1,6 @@
 import type { ContextPackStatus } from '@contextforge/contracts';
 import { VALID_TRANSITIONS } from '@contextforge/contracts';
-import { InvalidStateTransitionError } from '../errors/core-errors';
+import { InvalidStateTransitionError } from '../errors/core-errors.js';
 
 /**
  * Pure function: determines if a transition is valid.

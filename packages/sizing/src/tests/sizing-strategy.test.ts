@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { SizingStrategy } from '../sizing-strategy';
+import { SizingStrategy } from '../sizing-strategy.js';
 
 describe('sizing-strategy', () => {
   it('should estimate a single file', () => {

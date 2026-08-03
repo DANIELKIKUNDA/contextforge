@@ -1,9 +1,9 @@
 import type { ProfileId } from '@contextforge/contracts';
 import type { PackableFile, PackingPort, PackingResult } from '@contextforge/core';
-import { classifyOversizedFiles, filterPackableFiles } from './oversized-file-policy';
-import { resolvePriority } from './profile-priority-resolver';
-import { stableSort } from './stable-file-sorter';
-import { firstFitPack } from './volume-packer';
+import { classifyOversizedFiles, filterPackableFiles } from './oversized-file-policy.js';
+import { resolvePriority } from './profile-priority-resolver.js';
+import { stableSort } from './stable-file-sorter.js';
+import { firstFitPack } from './volume-packer.js';
 
 /**
  * Implements PackingPort using first-fit stable packing.

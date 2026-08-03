@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { detectFileKind } from '../../file-kind-detector';
+import { detectFileKind } from '../../file-kind-detector.js';
 
 describe('file-kind-detector', () => {
   it('should detect TypeScript as text', () => {

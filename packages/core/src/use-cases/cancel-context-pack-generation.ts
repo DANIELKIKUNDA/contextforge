@@ -1,6 +1,6 @@
-import { CancellationError } from '../errors/core-errors';
-import type { CancellationPort } from '../ports/cancellation.port';
-import type { ProgressReporterPort } from '../ports/progress-reporter.port';
+import { CancellationError } from '../errors/core-errors.js';
+import type { CancellationPort } from '../ports/cancellation.port.js';
+import type { ProgressReporterPort } from '../ports/progress-reporter.port.js';
 
 /**
  * Cas d'usage : annulation coopérative d'une génération.

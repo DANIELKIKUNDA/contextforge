@@ -1,5 +1,5 @@
-import type { ProfileId } from '../enums/profile-id';
-import type { SecuritySeverity } from '../enums/security-severity';
+import type { ProfileId } from '../enums/profile-id.js';
+import type { SecuritySeverity } from '../enums/security-severity.js';
 
 export interface ContextPackManifest {
   readonly schemaVersion: string;

@@ -18,7 +18,6 @@
     "declarationMap": true,
     "sourceMap": true,
     "isolatedModules": true,
-    "declarationDir": "./dist",
     "rootDir": "."
   },
   "exclude": ["node_modules", "dist", ".turbo"]

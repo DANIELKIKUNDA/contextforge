@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { RequestFingerprintService } from '../../services/request-fingerprint-service';
+import { RequestFingerprintService } from '../../services/request-fingerprint-service.js';
 
 describe('RequestFingerprintService', () => {
   const service = new RequestFingerprintService();

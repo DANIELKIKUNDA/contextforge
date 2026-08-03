@@ -1,7 +1,7 @@
-import type { ProfileId } from '../enums/profile-id';
-import type { Objective } from '../value-objects/objective';
-import type { FileDecision } from './file-decision';
-import type { ProjectDescriptor } from './project-descriptor';
+import type { ProfileId } from '../enums/profile-id.js';
+import type { Objective } from '../value-objects/objective.js';
+import type { FileDecision } from './file-decision.js';
+import type { ProjectDescriptor } from './project-descriptor.js';
 
 /**
  * Full scan preview result — no files are written at this stage.

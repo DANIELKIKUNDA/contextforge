@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { JsonConfigurationLoader } from '../json-configuration-loader';
+import { JsonConfigurationLoader } from '../json-configuration-loader.js';
 
 describe('JsonConfigurationLoader', () => {
   const loader = new JsonConfigurationLoader();

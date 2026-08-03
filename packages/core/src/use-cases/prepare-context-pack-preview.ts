@@ -11,17 +11,17 @@ import type {
   SecuritySeverity,
   SourceFile,
 } from '@contextforge/contracts';
-import type { CancellationPort } from '../ports/cancellation.port';
-import type { ConfigurationPort } from '../ports/configuration.port';
-import type { FileContentReaderPort } from '../ports/file-content-reader.port';
-import type { FileDiscoveryPort } from '../ports/file-discovery.port';
-import type { PackingPort } from '../ports/packing.port';
-import type { ProfileRegistryPort } from '../ports/profile-registry.port';
-import type { ProgressEvent, ProgressReporterPort } from '../ports/progress-reporter.port';
-import type { SecurityScannerPort } from '../ports/security-scanner.port';
-import type { SizingPort } from '../ports/sizing.port';
-import { FileDecisionService } from '../services/file-decision-service';
-import { RequestFingerprintService } from '../services/request-fingerprint-service';
+import type { CancellationPort } from '../ports/cancellation.port.js';
+import type { ConfigurationPort } from '../ports/configuration.port.js';
+import type { FileContentReaderPort } from '../ports/file-content-reader.port.js';
+import type { FileDiscoveryPort } from '../ports/file-discovery.port.js';
+import type { PackingPort } from '../ports/packing.port.js';
+import type { ProfileRegistryPort } from '../ports/profile-registry.port.js';
+import type { ProgressEvent, ProgressReporterPort } from '../ports/progress-reporter.port.js';
+import type { SecurityScannerPort } from '../ports/security-scanner.port.js';
+import type { SizingPort } from '../ports/sizing.port.js';
+import { FileDecisionService } from '../services/file-decision-service.js';
+import { RequestFingerprintService } from '../services/request-fingerprint-service.js';
 
 /** Entrée du cas d'usage PrepareContextPackPreview. */
 export interface PreparePreviewInput {

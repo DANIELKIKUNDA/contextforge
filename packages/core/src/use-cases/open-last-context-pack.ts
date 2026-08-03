@@ -1,4 +1,4 @@
-import type { LastPackRegistryPort } from '../ports/last-pack-registry.port';
+import type { LastPackRegistryPort } from '../ports/last-pack-registry.port.js';
 
 /**
  * Cas d'usage : ouvre le dernier Context Pack généré.

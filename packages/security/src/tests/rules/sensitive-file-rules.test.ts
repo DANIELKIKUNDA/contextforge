@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { DEFAULT_SENSITIVE_FILE_RULES } from '../../default-sensitive-file-rules';
+import { DEFAULT_SENSITIVE_FILE_RULES } from '../../default-sensitive-file-rules.js';
 
 function findRule(ruleId: string) {
   return DEFAULT_SENSITIVE_FILE_RULES.find((r) => r.ruleId === ruleId);

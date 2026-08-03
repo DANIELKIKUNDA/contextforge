@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest';
 import {
   isIgnoredByContextforgeIgnore,
   loadContextforgeIgnore,
-} from '../../contextforge-ignore-loader';
+} from '../../contextforge-ignore-loader.js';
 
 function tmpDir(): string {
   const dir = join(

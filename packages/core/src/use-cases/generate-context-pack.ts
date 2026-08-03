@@ -6,14 +6,14 @@ import type {
   IncludedFileDecision,
   PackVolume,
 } from '@contextforge/contracts';
-import { GenerationError } from '../errors/core-errors';
-import type { CancellationPort } from '../ports/cancellation.port';
-import type { ClockPort } from '../ports/clock.port';
-import type { ContextPackWriterPort } from '../ports/context-pack-writer.port';
-import type { FileContentReaderPort } from '../ports/file-content-reader.port';
-import type { IdGeneratorPort } from '../ports/id-generator.port';
-import type { LastPackRegistryPort } from '../ports/last-pack-registry.port';
-import type { ProgressReporterPort } from '../ports/progress-reporter.port';
+import { GenerationError } from '../errors/core-errors.js';
+import type { CancellationPort } from '../ports/cancellation.port.js';
+import type { ClockPort } from '../ports/clock.port.js';
+import type { ContextPackWriterPort } from '../ports/context-pack-writer.port.js';
+import type { FileContentReaderPort } from '../ports/file-content-reader.port.js';
+import type { IdGeneratorPort } from '../ports/id-generator.port.js';
+import type { LastPackRegistryPort } from '../ports/last-pack-registry.port.js';
+import type { ProgressReporterPort } from '../ports/progress-reporter.port.js';
 
 /**
  * Contexte mutable interne utilisé pendant la génération.

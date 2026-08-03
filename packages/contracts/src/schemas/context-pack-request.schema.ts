@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { ProfileIdValues } from '../enums/profile-id';
+import { ProfileIdValues } from '../enums/profile-id.js';
 
 /**
  * Zod schema for validating a ContextPackRequest input.

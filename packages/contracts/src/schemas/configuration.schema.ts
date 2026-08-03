@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { ProfileIdValues } from '../enums/profile-id';
+import { ProfileIdValues } from '../enums/profile-id.js';
 
 export const ContextForgeConfigurationSchema = z.object({
   outputDirectory: z.string().optional(),

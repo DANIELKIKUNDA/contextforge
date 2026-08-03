@@ -5,7 +5,7 @@ import {
   TOKEN_LIMIT_SMALL,
   createTokenLimit,
   resolveTokenLimitPreset,
-} from '../../value-objects/token-limit';
+} from '../../value-objects/token-limit.js';
 
 describe('TokenLimit value object', () => {
   it('should create a valid token limit', () => {

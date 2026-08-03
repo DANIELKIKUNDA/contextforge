@@ -5,12 +5,12 @@ import type { CancellationToken, FileDiscoveryPort } from '@contextforge/core';
 import {
   isIgnoredByContextforgeIgnore,
   loadContextforgeIgnore,
-} from './contextforge-ignore-loader';
-import { isDefaultExcludedDir } from './default-exclusions';
-import { detectFileKind } from './file-kind-detector';
-import { isIgnoredByGitignore, loadGitignore } from './gitignore-loader';
-import { normalizePath } from './path-normalizer';
-import { shouldRejectSymlink } from './symlink-policy';
+} from './contextforge-ignore-loader.js';
+import { isDefaultExcludedDir } from './default-exclusions.js';
+import { detectFileKind } from './file-kind-detector.js';
+import { isIgnoredByGitignore, loadGitignore } from './gitignore-loader.js';
+import { normalizePath } from './path-normalizer.js';
+import { shouldRejectSymlink } from './symlink-policy.js';
 
 /**
  * Node.js implementation of FileDiscoveryPort.

@@ -5,8 +5,8 @@ import {
   TERMINAL_STATUSES,
   isTerminal,
   validateTransition,
-} from '../../domain/context-pack-state-machine';
-import { InvalidStateTransitionError } from '../../errors/core-errors';
+} from '../../domain/context-pack-state-machine.js';
+import { InvalidStateTransitionError } from '../../errors/core-errors.js';
 
 describe('ContextPack state machine', () => {
   describe('validateTransition', () => {

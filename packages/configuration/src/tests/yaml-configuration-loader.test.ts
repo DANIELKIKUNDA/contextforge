@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { YamlConfigurationLoader } from '../yaml-configuration-loader';
+import { YamlConfigurationLoader } from '../yaml-configuration-loader.js';
 
 describe('YamlConfigurationLoader', () => {
   const loader = new YamlConfigurationLoader();

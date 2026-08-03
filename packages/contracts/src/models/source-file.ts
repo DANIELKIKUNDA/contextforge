@@ -1,6 +1,6 @@
-import type { FileContentKind } from '../enums/file-content-kind';
-import type { ContextPackId } from '../ids/context-pack-id';
-import type { RelativePath } from '../value-objects/relative-path';
+import type { FileContentKind } from '../enums/file-content-kind.js';
+import type { ContextPackId } from '../ids/context-pack-id.js';
+import type { RelativePath } from '../value-objects/relative-path.js';
 
 /**
  * Represents a discovered source file with its metadata.

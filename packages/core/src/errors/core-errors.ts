@@ -1,6 +1,6 @@
 import type { ContextPackStatus } from '@contextforge/contracts';
-import { CoreError } from './core-error';
-import { ErrorCodes } from './error-codes';
+import { CoreError } from './core-error.js';
+import { ErrorCodes } from './error-codes.js';
 
 /**
  * Input validation failed.

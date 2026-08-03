@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { normalizePath, toAbsolutePath } from '../../path-normalizer';
+import { normalizePath, toAbsolutePath } from '../../path-normalizer.js';
 
 describe('path-normalizer', () => {
   const root = '/home/user/project';

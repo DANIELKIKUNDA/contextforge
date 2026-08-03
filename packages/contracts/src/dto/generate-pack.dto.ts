@@ -1,5 +1,5 @@
-import type { ProfileId } from '../enums/profile-id';
-import type { ContextPackResult } from '../models/context-pack-result';
+import type { ProfileId } from '../enums/profile-id.js';
+import type { ContextPackResult } from '../models/context-pack-result.js';
 
 export interface GenerateContextPackInput {
   readonly projectRoot: string;

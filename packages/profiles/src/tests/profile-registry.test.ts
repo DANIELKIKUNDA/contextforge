@@ -1,12 +1,12 @@
 import type { ProfileId } from '@contextforge/contracts';
 import { describe, expect, it } from 'vitest';
-import { aiGeneralProfile } from '../ai-general.profile';
-import { codeReviewProfile } from '../code-review.profile';
-import { customProfile } from '../custom.profile';
-import { documentationProfile } from '../documentation.profile';
-import { onboardingProfile } from '../onboarding.profile';
-import { ProfileRegistry } from '../profile-registry';
-import { uiUxProfile } from '../ui-ux.profile';
+import { aiGeneralProfile } from '../ai-general.profile.js';
+import { codeReviewProfile } from '../code-review.profile.js';
+import { customProfile } from '../custom.profile.js';
+import { documentationProfile } from '../documentation.profile.js';
+import { onboardingProfile } from '../onboarding.profile.js';
+import { ProfileRegistry } from '../profile-registry.js';
+import { uiUxProfile } from '../ui-ux.profile.js';
 
 describe('ProfileRegistry', () => {
   const registry = new ProfileRegistry();

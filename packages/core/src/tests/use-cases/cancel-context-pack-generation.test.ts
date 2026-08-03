@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { CancellationError } from '../../errors/core-errors';
-import type { CancellationPort } from '../../ports/cancellation.port';
-import type { ProgressReporterPort } from '../../ports/progress-reporter.port';
-import { CancelContextPackGeneration } from '../../use-cases/cancel-context-pack-generation';
+import { CancellationError } from '../../errors/core-errors.js';
+import type { CancellationPort } from '../../ports/cancellation.port.js';
+import type { ProgressReporterPort } from '../../ports/progress-reporter.port.js';
+import { CancelContextPackGeneration } from '../../use-cases/cancel-context-pack-generation.js';
 
 describe('CancelContextPackGeneration', () => {
   it('lance une CancellationError avec le packId', () => {

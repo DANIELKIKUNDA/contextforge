@@ -1,7 +1,7 @@
-import type { ReasonCode } from '../enums/reason-code';
-import type { SecuritySeverity } from '../enums/security-severity';
-import type { SecurityFinding } from './security-finding';
-import type { SourceFile } from './source-file';
+import type { ReasonCode } from '../enums/reason-code.js';
+import type { SecuritySeverity } from '../enums/security-severity.js';
+import type { SecurityFinding } from './security-finding.js';
+import type { SourceFile } from './source-file.js';
 
 /**
  * FileDecision — Discriminated union.

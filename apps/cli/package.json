@@ -13,11 +13,21 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
+    "@contextforge/configuration": "workspace:*",
     "@contextforge/contracts": "workspace:*",
     "@contextforge/core": "workspace:*",
-    "@contextforge/configuration": "workspace:*"
+    "@contextforge/generators": "workspace:*",
+    "@contextforge/packer": "workspace:*",
+    "@contextforge/profiles": "workspace:*",
+    "@contextforge/scanner": "workspace:*",
+    "@contextforge/security": "workspace:*",
+    "@contextforge/sizing": "workspace:*",
+    "@inquirer/prompts": "7.0.0",
+    "commander": "12.0.0",
+    "ora": "8.0.0"
   },
   "devDependencies": {
+    "@types/node": "^22.10.0",
     "rimraf": "^5.0.0"
   }
 }

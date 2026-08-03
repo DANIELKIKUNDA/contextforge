@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { createRelativePath } from '../../value-objects/relative-path';
+import { createRelativePath } from '../../value-objects/relative-path.js';
 
 describe('RelativePath value object', () => {
   it('should create a valid relative path', () => {

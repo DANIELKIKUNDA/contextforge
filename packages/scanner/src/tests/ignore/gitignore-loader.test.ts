@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os';
 import { resolve } from 'node:path';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { isIgnoredByGitignore, loadGitignore } from '../../gitignore-loader';
+import { isIgnoredByGitignore, loadGitignore } from '../../gitignore-loader.js';
 
 function tmpDir(): string {
   const dir = join(

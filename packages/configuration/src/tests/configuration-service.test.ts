@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { ConfigurationService } from '../configuration-provenance';
-import { DEFAULT_CONFIGURATION } from '../default-configuration';
+import { ConfigurationService } from '../configuration-provenance.js';
+import { DEFAULT_CONFIGURATION } from '../default-configuration.js';
 
 describe('ConfigurationService', () => {
   const service = new ConfigurationService();

@@ -1,5 +1,5 @@
 import type { FileSizeMetrics } from '@contextforge/core';
-import { estimateTokens } from './character-token-estimator';
+import { estimateTokens } from './character-token-estimator.js';
 
 /**
  * Calculates FileSizeMetrics from a content string.

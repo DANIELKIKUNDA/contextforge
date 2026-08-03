@@ -1,6 +1,6 @@
 import type { ContextPackId, PackVolume, SourceFile } from '@contextforge/contracts';
 import type { ProfileId } from '@contextforge/contracts';
-import type { FileSizeMetrics } from './sizing.port';
+import type { FileSizeMetrics } from './sizing.port.js';
 
 /**
  * A file bundled with its sizing metrics.

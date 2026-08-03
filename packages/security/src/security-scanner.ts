@@ -1,9 +1,9 @@
 import type { SecurityFinding, SourceFile } from '@contextforge/contracts';
 import type { SecurityScannerPort } from '@contextforge/core';
-import { DEFAULT_SECRET_PATTERNS } from './default-secret-patterns';
-import { DEFAULT_SENSITIVE_EXTENSION_RULES } from './default-sensitive-extension-rules';
-import { DEFAULT_SENSITIVE_FILE_RULES } from './default-sensitive-file-rules';
-import type { SecurityRule } from './security-rule';
+import { DEFAULT_SECRET_PATTERNS } from './default-secret-patterns.js';
+import { DEFAULT_SENSITIVE_EXTENSION_RULES } from './default-sensitive-extension-rules.js';
+import { DEFAULT_SENSITIVE_FILE_RULES } from './default-sensitive-file-rules.js';
+import type { SecurityRule } from './security-rule.js';
 
 const SEVERITY_ORDER: Record<string, number> = {
   critical: 0,

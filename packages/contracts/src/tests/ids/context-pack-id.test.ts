@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { createContextPackId } from '../../ids/context-pack-id';
+import { createContextPackId } from '../../ids/context-pack-id.js';
 
 describe('ContextPackId with UUID validation', () => {
   it('should accept a valid UUID v4', () => {

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import type { LastPackRegistryPort } from '../../ports/last-pack-registry.port';
-import { OpenLastContextPack } from '../../use-cases/open-last-context-pack';
+import type { LastPackRegistryPort } from '../../ports/last-pack-registry.port.js';
+import { OpenLastContextPack } from '../../use-cases/open-last-context-pack.js';
 
 describe('OpenLastContextPack', () => {
   it('retourne le chemin du dernier pack enregistré', () => {

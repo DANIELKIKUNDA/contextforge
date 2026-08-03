@@ -1,6 +1,6 @@
 import type { SourceFile } from '@contextforge/contracts';
 import { describe, expect, it } from 'vitest';
-import { SecurityScanner } from '../../security-scanner';
+import { SecurityScanner } from '../../security-scanner.js';
 
 function makeSourceFile(opts: { relativePath?: string; extension?: string } = {}): SourceFile {
   return {

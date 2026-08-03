@@ -1,7 +1,7 @@
 import type { ContextPackPreview, IncludedFileDecision, SourceFile } from '@contextforge/contracts';
 import { describe, expect, it } from 'vitest';
-import { UiUxOutputGenerator } from '../ui-ux-output.generator';
-import type { UiUxOutputOptions } from '../ui-ux-output.generator';
+import { UiUxOutputGenerator } from '../ui-ux-output.generator.js';
+import type { UiUxOutputOptions } from '../ui-ux-output.generator.js';
 
 /**
  * Construit un SourceFile minimal pour les tests.

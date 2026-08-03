@@ -2,7 +2,7 @@ import { existsSync, mkdirSync, rmSync, symlinkSync, writeFileSync } from 'node:
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { FOLLOW_SYMLINKS_V1, isSymlink, shouldRejectSymlink } from '../../symlink-policy';
+import { FOLLOW_SYMLINKS_V1, isSymlink, shouldRejectSymlink } from '../../symlink-policy.js';
 
 function tmpDir(): string {
   const dir = join(

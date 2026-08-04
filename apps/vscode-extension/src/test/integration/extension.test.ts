@@ -1,5 +1,5 @@
+/// <reference types="mocha" />
 import { expect } from 'chai';
-import { describe, it } from 'mocha';
 import * as vscode from 'vscode';
 
 /**

@@ -17,8 +17,8 @@ async function main(): Promise<void> {
       '..',
       'dist',
       'test',
-      'integration',
-      'extension.test.js',
+      'suite',
+      'index.js',
     );
     const testWorkspace = path.resolve(__dirname, '..', '..', 'fixtures', 'workspace');
 

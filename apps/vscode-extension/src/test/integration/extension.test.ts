@@ -2,16 +2,32 @@
 import { expect } from 'chai';
 import * as vscode from 'vscode';
 
+const extensionId = 'contextforge.@contextforge/vscode-extension';
+
+async function activateExtension(): Promise<vscode.Extension<unknown>> {
+  const extension = vscode.extensions.getExtension<unknown>(extensionId);
+
+  if (extension === undefined) {
+    throw new Error(`Extension ${extensionId} introuvable dans l'Extension Host.`);
+  }
+
+  await extension.activate();
+  return extension;
+}
+
 /**
  * Tests d'intégration exécutés dans un vrai Extension Host VS Code
  * via @vscode/test-electron.
  */
 describe('Extension VS Code — Intégration', () => {
-  it("activation de l'extension sans erreur", async () => {
-    // L'extension est activée automatiquement par VS Code au démarrage
-    const ext = vscode.extensions.getExtension('contextforge.vscode-extension');
-    expect(ext).to.not.be.undefined;
-    expect(ext?.isActive).to.be.true;
+  let extension: vscode.Extension<unknown>;
+
+  before(async () => {
+    extension = await activateExtension();
+  });
+
+  it("activation de l'extension sans erreur", () => {
+    expect(extension.isActive).to.be.true;
   });
 
   it('les quatre commandes sont enregistrées', async () => {
@@ -32,11 +48,9 @@ describe('Extension VS Code — Intégration', () => {
     }
   });
 
-  it("désactivation propre de l'extension", async () => {
-    const ext = vscode.extensions.getExtension('contextforge.vscode-extension');
-    expect(ext).to.not.be.undefined;
+  it("désactivation propre de l'extension", () => {
     // La désactivation est testée en appelant la commande de désactivation
     // VS Code gère la désactivation automatiquement à la fermeture
-    expect(ext?.isActive).to.be.true;
+    expect(extension.isActive).to.be.true;
   });
 });

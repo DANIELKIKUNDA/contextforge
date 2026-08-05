@@ -1,6 +1,6 @@
 {
-  "name": "@contextforge/vscode-extension",
-  "version": "0.0.0",
+  "name": "contextforge",
+  "version": "1.0.0-rc.1",
   "private": true,
   "displayName": "ContextForge",
   "description": "Générateur de Context Packs local, offline-first et sécurisé",
@@ -10,13 +10,15 @@
   "publisher": "contextforge",
   "repository": {
     "type": "git",
-    "url": "https://github.com/contextforge/contextforge"
+    "url": "https://github.com/DANIELKIKUNDA/contextforge"
   },
   "license": "MIT",
   "engines": {
     "vscode": "^1.85.0"
   },
-  "activationEvents": [],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
@@ -66,7 +68,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:integration": "tsx src/test/runTest.ts",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "package": "npx @vscode/vsce package --out ../../artifacts/release/contextforge-1.0.0-rc.1.vsix",
+    "package:ls": "npx @vscode/vsce ls"
   },
   "dependencies": {
     "@contextforge/configuration": "workspace:*",
@@ -88,6 +92,7 @@
     "mocha": "^11.8.0",
     "rimraf": "^5.0.0",
     "tsx": "^4.23.5",
-    "vitest": "2.1.0"
+    "vitest": "2.1.0",
+    "@vscode/vsce": "^3.5.0"
   }
 }

@@ -45,7 +45,7 @@ jobs:
         run: pnpm test
 
       - name: Extension Host tests
-        run: xvfb-run -a pnpm --filter @contextforge/vscode-extension test:integration
+        run: cd apps/vscode-extension && xvfb-run -a pnpm test:integration
 
   package:
     name: Package VSIX

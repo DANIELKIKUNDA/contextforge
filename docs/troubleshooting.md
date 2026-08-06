@@ -35,7 +35,7 @@
 
 **Cause** : L'ID d'extension dans `package.json` (`"name"`) ne correspond pas à celui utilisé dans le test. Le nom de package doit être `contextforge` (pas `@contextforge/vscode-extension`).
 
-**Solution** : Vérifiez que `package.json` contient `"name": "contextforge"` et que les tests utilisent l'ID `contextforge.vscode-extension` ou `contextforge.contextforge` selon le contexte d'exécution.
+**Solution** : Vérifiez que `package.json` contient `"publisher": "contextforge"` et `"name": "contextforge"`. L'ID VS Code réel est donc `contextforge.contextforge`. Les tests doivent utiliser `vscode.extensions.getExtension('contextforge.contextforge')`.
 
 ## Le Context Pack ne contient pas les fichiers attendus
 

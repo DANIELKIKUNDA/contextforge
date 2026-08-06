@@ -5,11 +5,13 @@ import * as vscode from 'vscode';
 /**
  * Tests d'intégration exécutés dans un vrai Extension Host VS Code
  * via @vscode/test-electron.
+ *
+ * ID VS Code réel : publisher.name = contextforge.contextforge
  */
 describe('Extension VS Code — Intégration', () => {
   it("activation de l'extension sans erreur", async () => {
     // L'extension est activée automatiquement par VS Code au démarrage
-    const ext = vscode.extensions.getExtension('contextforge.vscode-extension');
+    const ext = vscode.extensions.getExtension('contextforge.contextforge');
     expect(ext).to.not.be.undefined;
     expect(ext?.isActive).to.be.true;
   });
@@ -33,7 +35,7 @@ describe('Extension VS Code — Intégration', () => {
   });
 
   it("désactivation propre de l'extension", async () => {
-    const ext = vscode.extensions.getExtension('contextforge.vscode-extension');
+    const ext = vscode.extensions.getExtension('contextforge.contextforge');
     expect(ext).to.not.be.undefined;
     // La désactivation est testée en appelant la commande de désactivation
     // VS Code gère la désactivation automatiquement à la fermeture

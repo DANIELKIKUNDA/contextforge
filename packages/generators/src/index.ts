@@ -2,6 +2,8 @@
 export { MarkdownLanguageResolver } from './markdown-language-resolver.js';
 export { ReadmeGenerator } from './readme.generator.js';
 export { ContextVolumeGenerator } from './context-volume.generator.js';
+export { ContextPackOutputGenerator } from './context-pack-output.generator.js';
+export type { ContextPackOutputInput } from './context-pack-output.generator.js';
 export { ManifestGenerator } from './manifest.generator.js';
 export { IncludedFilesGenerator } from './included-files.generator.js';
 export { ExclusionsGenerator } from './exclusions.generator.js';

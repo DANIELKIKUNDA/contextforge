@@ -13,7 +13,10 @@ export type {
   OversizedFile,
   PackingResult,
 } from './ports/packing.port.js';
-export type { ContextPackWriterPort } from './ports/context-pack-writer.port.js';
+export type {
+  ContextPackWriterPort,
+  ContextPackWriteRequest,
+} from './ports/context-pack-writer.port.js';
 export type {
   ConfigurationPort,
   ConfigurationLoadResult,

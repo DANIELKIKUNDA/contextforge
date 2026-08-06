@@ -66,7 +66,7 @@
     "test:watch": "vitest",
     "test:integration": "tsx src/test/runTest.ts",
     "clean": "rimraf dist",
-    "package": "vsce package --out ../../artifacts/release/contextforge-1.0.0-rc.1.vsix --no-dependencies",
+    "package": "node -e \"require('node:fs').mkdirSync('../../artifacts/release',{ recursive: true })\" && vsce package --out ../../artifacts/release/contextforge-1.0.0-rc.1.vsix --no-dependencies",
     "package:extension": "pnpm package",
     "package:ls": "vsce ls --no-dependencies"
   },

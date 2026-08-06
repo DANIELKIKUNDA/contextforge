@@ -25,6 +25,8 @@ interface GenerationContext {
   packId: string;
   volumes: PackVolume[];
   manifest: ContextPackManifest;
+  contents: Map<string, string>;
+  outputRoot: string;
   outputDirectory: string;
   temporaryDir: string;
   warnings: string[];
@@ -110,6 +112,8 @@ export class GenerateContextPack {
       packId: this.idGenerator.generatePackId(),
       volumes: [],
       manifest: this.createEmptyManifest(input, preview),
+      contents: new Map(),
+      outputRoot: '',
       outputDirectory: '',
       temporaryDir: '',
       warnings: [],
@@ -120,8 +124,7 @@ export class GenerateContextPack {
     input: GenerateContextPackInput,
     _preview: ContextPackPreview,
   ): ContextPackManifest {
-    const projectName =
-      input.projectRoot.split('/').pop() ?? input.projectRoot.split('\\').pop() ?? 'unknown';
+    const projectName = this.projectNameFromRoot(input.projectRoot);
 
     return {
       schemaVersion: '1.0.0',
@@ -255,6 +258,17 @@ export class GenerateContextPack {
 
     if (includedDecisions.length === 0) {
       ctx.volumes = [];
+      ctx.manifest = {
+        ...ctx.manifest,
+        volumes: [],
+        outputFiles: [
+          'README.md',
+          'manifest.json',
+          'included-files.md',
+          'exclusions.md',
+          'warnings.md',
+        ],
+      };
       return;
     }
 
@@ -270,8 +284,8 @@ export class GenerateContextPack {
 
       ctx.volumes.push({
         index: i,
-        outputFileName: `volume-${String(i + 1).padStart(3, '0')}.md`,
-        fileIds: [],
+        outputFileName: `context-${String(i + 1).padStart(2, '0')}.md`,
+        fileIds: slice.map((decision) => decision.file.id),
         estimatedTokens: volumeTokens,
         estimatedBytes: volumeBytes,
         heading: `Volume ${i + 1}`,
@@ -293,24 +307,50 @@ export class GenerateContextPack {
         estimatedBytes: v.estimatedBytes,
       };
     });
-    ctx.manifest = { ...ctx.manifest, volumes: manifestVolumes };
+    ctx.manifest = {
+      ...ctx.manifest,
+      volumes: manifestVolumes,
+      outputFiles: [
+        'README.md',
+        ...ctx.volumes.map((volume) => volume.outputFileName),
+        'manifest.json',
+        'included-files.md',
+        'exclusions.md',
+        'warnings.md',
+      ],
+    };
   }
 
   private async writeTemporary(ctx: GenerationContext): Promise<void> {
     const outputDir = ctx.input.outputDirectory ?? '.contextforge/output';
-    const projectName =
-      ctx.input.projectRoot.split('/').pop() ??
-      ctx.input.projectRoot.split('\\').pop() ??
-      'unknown';
+    const projectName = this.projectNameFromRoot(ctx.input.projectRoot);
+    const projectRoot = ctx.input.projectRoot.replace(/[\\/]+$/, '');
+    const relativeOutputDir = outputDir.replace(/^[\\/]+|[\\/]+$/g, '');
 
-    ctx.outputDirectory = `${outputDir}/${projectName}-${ctx.packId}`;
+    ctx.outputRoot = `${projectRoot}/${relativeOutputDir}`;
+    ctx.outputDirectory = `${ctx.outputRoot}/${projectName}-${ctx.packId}`;
 
     try {
-      ctx.temporaryDir = await this.contextPackWriter.writeTemporary(
-        ctx.packId,
-        outputDir,
-        ctx.volumes,
+      const included = ctx.preview.decisions.filter(
+        (decision): decision is IncludedFileDecision => decision.status === 'included',
       );
+
+      for (const decision of included) {
+        this.checkCancelled();
+        const result = await this.fileContentReader.read(decision.file, {
+          maxBytes: ctx.manifest.limits.maxFileSizeBytes,
+        });
+        ctx.contents.set(decision.file.relativePath as string, result.content);
+      }
+
+      ctx.temporaryDir = await this.contextPackWriter.writeTemporary({
+        packId: ctx.packId,
+        outputRoot: ctx.outputRoot,
+        volumes: ctx.volumes,
+        manifest: ctx.manifest,
+        preview: ctx.preview,
+        contents: ctx.contents,
+      });
     } catch (err) {
       throw new GenerationError(
         `Échec de l'écriture temporaire : ${err instanceof Error ? err.message : String(err)}`,
@@ -357,9 +397,9 @@ export class GenerateContextPack {
       readmePath: `${ctx.outputDirectory}/README.md`,
       manifestPath: `${ctx.outputDirectory}/manifest.json`,
       volumePaths: ctx.volumes.map((v) => `${ctx.outputDirectory}/${v.outputFileName}`),
-      includedFilesPath: `${ctx.outputDirectory}/_included-files.md`,
-      exclusionsPath: `${ctx.outputDirectory}/_exclusions.md`,
-      warningsPath: `${ctx.outputDirectory}/_warnings.md`,
+      includedFilesPath: `${ctx.outputDirectory}/included-files.md`,
+      exclusionsPath: `${ctx.outputDirectory}/exclusions.md`,
+      warningsPath: `${ctx.outputDirectory}/warnings.md`,
       includedCount: ctx.manifest.includedFiles.length,
       blockedCount: ctx.manifest.blockedFiles.length,
       estimatedTokens: ctx.preview.estimatedTokens,
@@ -367,5 +407,10 @@ export class GenerateContextPack {
       durationMs,
       warnings: ctx.warnings,
     };
+  }
+
+  private projectNameFromRoot(projectRoot: string): string {
+    const normalized = projectRoot.replace(/\\/g, '/').replace(/\/$/, '');
+    return normalized.split('/').filter(Boolean).at(-1) ?? 'unknown';
   }
 }

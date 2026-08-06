@@ -1,7 +1,6 @@
-import type { PackVolume } from '@contextforge/contracts';
-import type { ContextPackWriterPort } from '@contextforge/core';
-import { AtomicContextPackWriter } from '@contextforge/generators';
-import { OutputValidator } from '@contextforge/generators';
+import * as path from 'node:path';
+import type { ContextPackWriteRequest, ContextPackWriterPort } from '@contextforge/core';
+import { AtomicContextPackWriter, ContextPackOutputGenerator } from '@contextforge/generators';
 
 /**
  * Adaptateur concret de ContextPackWriterPort utilisant AtomicContextPackWriter
@@ -11,21 +10,32 @@ import { OutputValidator } from '@contextforge/generators';
  */
 export class CliContextPackWriter implements ContextPackWriterPort {
   private readonly writer = new AtomicContextPackWriter();
-  private readonly validator = new OutputValidator();
+  private readonly outputGenerator = new ContextPackOutputGenerator();
 
-  async writeTemporary(
-    _packId: string,
-    _outputDir: string,
-    _volumes: readonly PackVolume[],
-  ): Promise<string> {
-    const tmpDir = `.contextforge/output/.tmp/${Date.now()}`;
+  async writeTemporary(request: ContextPackWriteRequest): Promise<string> {
+    const tmpDir = path.join(request.outputRoot, '.tmp', `${request.packId}-${Date.now()}`);
     await this.writer.createTemporaryDir(tmpDir);
+
+    const files = this.outputGenerator.generate(request);
+    for (const [relativePath, content] of files) {
+      await this.writer.writeFile(tmpDir, relativePath, content);
+    }
+
     return tmpDir;
   }
 
   async validateTemporary(temporaryDir: string): Promise<string[]> {
     const files = await this.writer.listWrittenFiles(temporaryDir);
-    return files.length === 0 ? ['Répertoire temporaire vide'] : [];
+    const requiredFiles = [
+      'README.md',
+      'manifest.json',
+      'included-files.md',
+      'exclusions.md',
+      'warnings.md',
+    ];
+    return requiredFiles
+      .filter((requiredFile) => !files.includes(requiredFile))
+      .map((requiredFile) => `Fichier de sortie manquant : ${requiredFile}`);
   }
 
   async commit(temporaryDir: string, finalDir: string): Promise<void> {

@@ -1,5 +1,8 @@
 name: CI
 
+permissions:
+  contents: read
+
 on:
   push:
     branches: [main, feat/phase-10-vscode-extension, feat/phase-11-release]
@@ -76,22 +79,21 @@ jobs:
         run: pnpm build
 
       - name: Package VSIX
-        run: >
-          node node_modules/.pnpm/@vscode+vsce@*/node_modules/@vscode/vsce/out/main.js
-          package
-          --out artifacts/release/contextforge-1.0.0-rc.1.vsix
-          --no-dependencies
+        run: pnpm package
         working-directory: apps/vscode-extension
 
       - name: Compute SHA-256
+        working-directory: artifacts/release
         run: |
-          sha256sum artifacts/release/contextforge-1.0.0-rc.1.vsix > artifacts/release/contextforge-1.0.0-rc.1.vsix.sha256
-          cat artifacts/release/contextforge-1.0.0-rc.1.vsix.sha256
+          sha256sum contextforge-1.0.0-rc.1.vsix > contextforge-1.0.0-rc.1.vsix.sha256
+          cat contextforge-1.0.0-rc.1.vsix.sha256
+
+      - name: Verify SHA-256
+        working-directory: artifacts/release
+        run: sha256sum --check contextforge-1.0.0-rc.1.vsix.sha256
 
       - name: List package contents
-        run: >
-          node node_modules/.pnpm/@vscode+vsce@*/node_modules/@vscode/vsce/out/main.js
-          ls
+        run: pnpm package:ls
         working-directory: apps/vscode-extension
 
       - name: Upload VSIX artifact

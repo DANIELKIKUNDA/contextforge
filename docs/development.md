@@ -55,7 +55,7 @@ La CLI et l'extension VS Code sont des **adaptateurs** qui assemblent les dépen
 
 | Commande | Description |
 |---|---|
-| `pnpm install` | Installer les dépendances |
+| `pnpm install --frozen-lockfile` | Installer exactement les dépendances verrouillées |
 | `pnpm build` | Compiler tous les packages (turbo) |
 | `pnpm typecheck` | Vérifier les types TypeScript |
 | `pnpm lint` | Linter (Biome) |
@@ -66,7 +66,7 @@ La CLI et l'extension VS Code sont des **adaptateurs** qui assemblent les dépen
 
 - **TypeScript strict** dans tous les packages
 - **Biome** pour le linting et le formatage
-- **Vitest** pour les tests unitaires (503 tests, 0 échec)
+- **Vitest** pour les tests unitaires (le total exact est publié par chaque run CI)
 - **Mocha + @vscode/test-electron** pour les tests d'intégration VS Code
 - **Zod** pour la validation des schémas
 
@@ -81,7 +81,8 @@ La CLI et l'extension VS Code sont des **adaptateurs** qui assemblent les dépen
 
 ```bash
 cd apps/vscode-extension
-npx @vscode/vsce package --out ../../artifacts/release/contextforge-1.0.0-rc.1.vsix
+pnpm package
+pnpm package:ls
 ```
 
 Le `.vscodeignore` à la racine de `apps/vscode-extension/` contrôle ce qui est inclus/exclu du `.vsix`.
@@ -89,8 +90,9 @@ Le `.vscodeignore` à la racine de `apps/vscode-extension/` contrôle ce qui est
 ## CI/CD
 
 Le workflow `.github/workflows/ci.yml` définit deux jobs :
-- **quality** : typecheck, lint, tests unitaires, tests d'intégration
-- **package** (needs: quality) : packaging .vsix, SHA-256, upload d'artefact
+- **Quality Gates** : build, typecheck, lint, tests unitaires et tests Extension Host ;
+- **Package VSIX** (après Quality Gates) : bundle autonome, packaging `.vsix`, calcul et
+  vérification du SHA-256, inspection du contenu et upload de l'artefact.
 
 ## Règles absolues
 

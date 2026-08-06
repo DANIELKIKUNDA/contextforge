@@ -6,7 +6,6 @@
   "description": "Générateur de Context Packs local, offline-first et sécurisé",
   "type": "module",
   "categories": ["Other"],
-  "icon": "media/icon.png",
   "publisher": "contextforge",
   "repository": {
     "type": "git",
@@ -54,21 +53,22 @@
         },
         "contextForge.outputDirectory": {
           "type": "string",
-          "default": ".contextforge",
+          "default": ".contextforge/output",
           "description": "Répertoire de sortie des Context Packs (relatif au workspace)"
         }
       }
     }
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && esbuild src/extension.ts --bundle --platform=node --format=esm --target=node18 --external:vscode --outfile=dist/extension.js",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:integration": "tsx src/test/runTest.ts",
     "clean": "rimraf dist",
-    "package": "npx @vscode/vsce package --out ../../artifacts/release/contextforge-1.0.0-rc.1.vsix",
-    "package:ls": "npx @vscode/vsce ls"
+    "package": "vsce package --out ../../artifacts/release/contextforge-1.0.0-rc.1.vsix --no-dependencies",
+    "package:extension": "pnpm package",
+    "package:ls": "vsce ls --no-dependencies"
   },
   "dependencies": {
     "@contextforge/configuration": "workspace:*",
@@ -86,11 +86,12 @@
     "@types/mocha": "^10.0.10",
     "@types/vscode": "^1.85.0",
     "@vscode/test-electron": "2.4.0",
+    "@vscode/vsce": "^3.5.0",
     "chai": "^6.2.2",
+    "esbuild": "0.28.1",
     "mocha": "^11.8.0",
     "rimraf": "^5.0.0",
     "tsx": "^4.23.5",
-    "vitest": "2.1.0",
-    "@vscode/vsce": "^3.5.0"
+    "vitest": "2.1.0"
   }
 }

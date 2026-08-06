@@ -21,13 +21,14 @@
 
 ## Erreur lors du packaging .vsix en local
 
-**Symptôme** : `npx @vscode/vsce package` échoue avec `ETIMEDOUT` ou autre.
+**Symptôme** : `pnpm package` échoue.
 
 **Solutions** :
 1. Vérifiez que `@vscode/vsce` est installé : `pnpm install`.
 2. Vérifiez le `.vscodeignore` à la racine de `apps/vscode-extension/`.
 3. Exécutez depuis un terminal dans `apps/vscode-extension/`.
-4. Sur Windows avec espaces dans le chemin, utilisez le job CI `package` qui s'exécute sur Linux.
+4. Vérifiez le contenu calculé avec `pnpm package:ls`. Le script utilise le
+   binaire local `vsce` et accepte les chemins Windows contenant des espaces.
 
 ## Erreur `Extension not found` dans les tests d'intégration
 

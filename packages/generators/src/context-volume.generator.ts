@@ -17,7 +17,7 @@ export class ContextVolumeGenerator {
   generate(
     files: IncludedFileDecision[],
     volumeIndex: number,
-    contents: Map<string, string>,
+    contents: ReadonlyMap<string, string>,
   ): string {
     const lines: string[] = [];
 

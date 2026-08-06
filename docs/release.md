@@ -22,22 +22,22 @@ Chaque release candidate produit :
 
 Le workflow `.github/workflows/ci.yml` définit le pipeline de release :
 
-### Job `quality` (ubuntu-latest)
+### Job `Quality Gates` (ubuntu-latest)
 
 1. Checkout du dépôt
 2. `corepack enable` + `pnpm install --frozen-lockfile`
 3. `pnpm build` — Compilation TypeScript
 4. `pnpm typecheck` — Vérification des types
 5. `pnpm lint` — Linting Biome
-6. `pnpm test` — Tests unitaires Vitest (503 tests)
+6. `pnpm test` — Tests unitaires Vitest
 7. `xvfb-run -a pnpm test:integration` — Tests d'intégration VS Code
 
-### Job `package` (ubuntu-latest, needs: quality)
+### Job `Package VSIX` (ubuntu-latest, après `Quality Gates`)
 
-1. `pnpm build` dans `apps/vscode-extension`
-2. `npx @vscode/vsce package` — Packaging .vsix
-3. `sha256sum` — Calcul du SHA-256
-4. `npx @vscode/vsce ls` — Liste du contenu
+1. `pnpm build` — compilation et bundle autonome de l'extension
+2. `pnpm package` dans `apps/vscode-extension` — packaging `.vsix`
+3. `sha256sum` puis `sha256sum --check` — calcul et vérification du SHA-256
+4. `pnpm package:ls` — liste du contenu
 5. Upload de l'artefact (`actions/upload-artifact@v4`, rétention 90 jours)
 
 ## Créer une release candidate
@@ -53,7 +53,7 @@ Le workflow `.github/workflows/ci.yml` définit le pipeline de release :
 7. Attendre que la CI soit verte (jobs quality + package)
 8. Télécharger l'artefact `.vsix` depuis l'onglet Artifacts du run
 9. Vérifier l'intégrité : `sha256sum -c contextforge-1.0.0-rc.1.vsix.sha256`
-10. Tester l'installation : `code --install-extension contextforge-1.0.0-rc.1.vsix`
+10. Tester l'installation : `code --install-extension contextforge-1.0.0-rc.1.vsix --force`
 11. Exécuter le smoke test (commandes visibles, génération de pack)
 12. Désinstaller : `code --uninstall-extension contextforge.contextforge`
 13. **Ne pas fusionner la PR** tant que tous les tests ne sont pas validés
@@ -64,7 +64,7 @@ Le workflow `.github/workflows/ci.yml` définit le pipeline de release :
 
 - [ ] `pnpm typecheck` OK
 - [ ] `pnpm lint` OK
-- [ ] `pnpm test` OK (503 tests)
+- [ ] `pnpm test` OK (total exact relevé dans le run)
 - [ ] CI quality vert
 - [ ] CI package vert
 - [ ] Artefact `.vsix` produit
@@ -79,10 +79,11 @@ Le workflow `.github/workflows/ci.yml` définit le pipeline de release :
 - [ ] Désinstallation propre
 - [ ] Documentation à jour
 - [ ] CHANGELOG à jour
-- [ ] PR créée, CI verte, non fusionnée
+- [ ] PR créée et CI verte avant fusion
 
 ## Notes
 
-- Le packaging local sur Windows peut échouer à cause des espaces dans les chemins. Utiliser le job CI `package` (Linux).
+- Le packaging local utilise les binaires du workspace et prend en charge les
+  chemins Windows contenant des espaces ; la CI Linux fournit la preuve reproductible.
 - Aucun tag Git, Release GitHub, ou publication Marketplace n'est créé en V1.
 - La branche `feat/phase-11-release` contient la release candidate 1.0.0-rc.1.

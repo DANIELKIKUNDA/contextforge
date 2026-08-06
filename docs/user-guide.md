@@ -30,11 +30,10 @@ Toutes les commandes sont accessibles via la palette de commandes (`Ctrl+Shift+P
 | Fichier | Rôle |
 |---|---|
 | `README.md` | Contexte, objectif, instructions |
-| `CONTEXT_PACK.md` | Fichiers sources en markdown |
+| `context-01.md`, `context-02.md`, … | Contenu des fichiers sources inclus, réparti en volumes |
 | `manifest.json` | Métadonnées (id, date, profil, exclusions) |
 | `included-files.md` | Liste des fichiers inclus |
 | `exclusions.md` | Fichiers exclus avec motifs |
-| `context-volume.md` | Volume estimé en tokens |
 | `warnings.md` | Avertissements sécurité/taille |
 
 ### Exclusions automatiques
@@ -65,7 +64,7 @@ Accessible via `File > Preferences > Settings` > `Extensions > ContextForge`.
 |---|---|---|
 | `contextForge.defaultProfile` | `ai-general` | `ai-general`, `code-review`, `ui-ux`, `custom` |
 | `contextForge.defaultTokenLimit` | `32000` | `4000`, `8000`, `16000`, `32000`, `64000`, `128000` |
-| `contextForge.outputDirectory` | `.contextforge` | Chemin relatif au workspace |
+| `contextForge.outputDirectory` | `.contextforge/output` | Chemin relatif au workspace |
 
 ## Profils
 

@@ -5,6 +5,7 @@ fixtures/**
 node_modules/**
 test/**
 tests/**
+.vscodeignore
 .gitignore
 tsconfig.json
 vitest.config.ts
@@ -13,17 +14,9 @@ turbo.json
 .github/**
 docs/**
 scripts/**
-**/*.map
 **/tsconfig*.json
 **/.turbo/**
 **/coverage/**
 **/.nyc_output/**
-**/*.test.*
-**/*.spec.*
-**/vitest.*
-!dist/**
-!media/**
-!README.md
-!CHANGELOG.md
-!LICENSE
-!package.json
+dist/**
+!dist/extension.js

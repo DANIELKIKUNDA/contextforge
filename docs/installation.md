@@ -10,7 +10,8 @@ ContextForge V1 se distribue sous forme d'extension VS Code empaquetée dans un 
 | Node.js | `>= 20` (développement uniquement) |
 | pnpm | `>= 9` (développement uniquement) |
 
-> L'extension dans le `.vsix` ne nécessite **pas** Node.js : le code est compilé dans `dist/`.
+> L'extension installée ne nécessite **pas** Node.js : son code d'exécution et ses
+> dépendances internes sont regroupés dans `dist/extension.js`.
 
 ## Installer le .vsix
 
@@ -23,13 +24,13 @@ ContextForge V1 se distribue sous forme d'extension VS Code empaquetée dans un 
 ### Depuis le terminal
 
 ```bash
-code --install-extension contextforge-1.0.0-rc.1.vsix
+code --install-extension contextforge-1.0.0-rc.1.vsix --force
 ```
 
 ### Vérifier l'installation
 
 ```bash
-code --list-extensions
+code --list-extensions --show-versions
 ```
 
 La sortie doit contenir `contextforge.contextforge` (ID = `publisher.name`).
@@ -56,11 +57,14 @@ Toute divergence = artefact altéré : **ne pas installer**.
 code --uninstall-extension contextforge.contextforge
 ```
 
-Aucun fichier n'est laissé dans le profil VS Code après désinstallation.
+L'extension ne doit plus apparaître dans `code --list-extensions`. Les Context
+Packs déjà générés dans les workspaces ne sont pas supprimés.
 
 ## Récupérer l'artefact
 
-L'artefact `contextforge-1.0.0-rc.1` est produit par le job CI `package` et téléchargeable depuis l'onglet **Artifacts** du run GitHub Actions.
+L'artefact `contextforge-1.0.0-rc.1` est produit par le job CI `Package VSIX` et
+téléchargeable depuis l'onglet **Artifacts** du run GitHub Actions. Il contient
+le VSIX et son fichier `.sha256`.
 
 ## Limitations V1
 
